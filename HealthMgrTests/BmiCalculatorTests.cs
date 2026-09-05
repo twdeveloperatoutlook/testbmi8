@@ -22,5 +22,29 @@ namespace HealthMgr.Tests
 
             Assert.AreEqual("24.22", result.ToString("00.00"));
         }
+
+        [TestMethod()]
+        public void GetHealthDescriptionTest_NormalRange()
+        {
+            HealthMgr.BmiCalculator bmi = new HealthMgr.BmiCalculator();
+            bmi.Height = 170;
+            bmi.Weight = 70;
+
+            var description = bmi.GetHealthDescription();
+
+            StringAssert.Contains(description, "正常範圍");
+        }
+
+        [TestMethod()]
+        public void GetHealthDescriptionTest_Obesity()
+        {
+            HealthMgr.BmiCalculator bmi = new HealthMgr.BmiCalculator();
+            bmi.Height = 170;
+            bmi.Weight = 100;
+
+            var description = bmi.GetHealthDescription();
+
+            StringAssert.Contains(description, "肥胖");
+        }
     }
 }
