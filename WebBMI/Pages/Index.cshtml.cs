@@ -7,6 +7,7 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     public float BmiResult = 0;
+    public string HealthDescription { get; private set; } = string.Empty;
 
     [BindProperty]
     public int fieldHeight { get; set; }
@@ -20,7 +21,7 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-
+        HealthDescription = string.Empty;
     }
 
     public void OnPostCalculate()
@@ -31,5 +32,6 @@ public class IndexModel : PageModel
         bc.Weight = fieldWeight;
 
         BmiResult = bc.Calculate();
+        HealthDescription = bc.GetHealthDescription();
     }
 }
