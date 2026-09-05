@@ -14,12 +14,12 @@
 
         public string GetHealthDescription()
         {
-            float bmi = BMI;
-
-            if (bmi <= 0 || Height <= 0 || Weight <= 0)
+            if (Height <= 0 || Weight <= 0)
             {
                 return "請輸入有效的身高與體重。";
             }
+
+            float bmi = BMI;
 
             if (bmi < 18.5f)
             {
