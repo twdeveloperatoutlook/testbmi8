@@ -16,3 +16,23 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.bmi-gauge {
+  max-width: 360px;
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.bmi-gauge svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bmi-gauge-value {
+  margin-top: -20px;
+  margin-bottom: 8px;
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
